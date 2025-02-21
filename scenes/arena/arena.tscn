@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b54m8v4gwnj07"]
+[gd_scene load_steps=8 format=4 uid="uid://b54m8v4gwnj07"]
 
 [ext_resource type="TileSet" uid="uid://ckm4s5vo8xitp" path="res://scenes/arena/tileset.tres" id="1_1thxu"]
+[ext_resource type="Script" path="res://scenes/arena/arena.gd" id="1_ovtsj"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_qqa6s"]
+[ext_resource type="PackedScene" uid="uid://bn8sh6jx38cwa" path="res://scenes/unit/unit.tscn" id="4_cw02r"]
 
 [sub_resource type="Curve" id="Curve_fkdd5"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252914, 1), 0.0, 0.0, 0, 0, Vector2(0.807692, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -26,6 +28,7 @@ scale_curve = SubResource("CurveTexture_b82ns")
 color = Color(1, 1, 1, 0.568627)
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_ovtsj")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -36,6 +39,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAY
 tile_set = ExtResource("1_1thxu")
 
 [node name="Props" type="TileMapLayer" parent="Visuals"]
+modulate = Color(1, 1, 1, 0.392157)
 tile_map_data = PackedByteArray("AAARAAAAAAAPABMAAAAAAAcAAAALABMAAAAAAAsAAAABABMAAAAQAAcAAAALABMAAAAQAAsAAAACABMAAAATAAAAAAAAABIAAAAUAAsAAAABABIAAAAUAAIAAAAIABMAAAAUAAEAAAALABMAAAACAAAAAAAKABMAAAABAAMAAAADABMAAAABAAIAAAAOABMAAAA=")
 tile_set = ExtResource("1_1thxu")
 
@@ -59,6 +63,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Decor" type="TileMapLayer" parent="GameArea"]
+modulate = Color(1, 1, 1, 0.392157)
 tile_map_data = PackedByteArray("AAAIAAAAAAAAABUAAAADAAEAAAAAABUAAAAHAAUAAAAAABYAAAAJAAMAAAAAABYAAAACAAQAAAABABYAAAAAAAIAAAABABYAAAA=")
 tile_set = ExtResource("1_1thxu")
 
@@ -73,3 +78,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Bench"]
+tile_set = ExtResource("1_1thxu")
+
+[node name="Unit" parent="." instance=ExtResource("4_cw02r")]
+position = Vector2(160, 320)
