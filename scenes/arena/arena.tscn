@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=4 uid="uid://b54m8v4gwnj07"]
+[gd_scene load_steps=6 format=4 uid="uid://b54m8v4gwnj07"]
 
 [ext_resource type="TileSet" uid="uid://ckm4s5vo8xitp" path="res://scenes/arena/tileset.tres" id="1_1thxu"]
+[ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_qqa6s"]
+
+[sub_resource type="Curve" id="Curve_fkdd5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252914, 1), 0.0, 0.0, 0, 0, Vector2(0.807692, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_b82ns"]
+curve = SubResource("Curve_fkdd5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seki6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(320, 1, 1)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angular_velocity_min = 20.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_b82ns")
+color = Color(1, 1, 1, 0.568627)
 
 [node name="Arena" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -19,6 +42,14 @@ tile_set = ExtResource("1_1thxu")
 [node name="Walls" type="TileMapLayer" parent="Visuals"]
 tile_map_data = PackedByteArray("AAAEAAAAAAAAAAEAAAAGAAAAAAABAAEAAAAFAAAAAAABAAEAAAAIAAAAAAABAAEAAAAHAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAAAAAEAAAALAAAAAAABAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAcAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAgAAAABAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAgAAAABAAEAAAAFAAgAAAABAAEAAAAIAAgAAAABAAEAAAAMAAgAAAABAAEAAAANAAgAAAABAAEAAAAOAAgAAAABAAEAAAAKAAgAAAABAAEAAAAJAAgAAAABAAEAAAAHAAgAAAABAAEAAAAGAAgAAAABAAEAAAALAAgAAAABAAEAAAAEAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAALAAsAAAABAAAAAAAOAAsAAAABAAAAAAANAAsAAAABAAAAAAAMAAsAAAABAAAAAAAKAAsAAAABAAAAAAAHAAsAAAABAAAAAAAFAAsAAAABAAAAAAAPAAsAAAABAAAAAAAGAAsAAAABAAAAAAAEAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAA=")
 tile_set = ExtResource("1_1thxu")
+
+[node name="DustParticles" type="GPUParticles2D" parent="Visuals"]
+z_index = 99
+position = Vector2(320, 180)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_seki6")
+texture = ExtResource("2_qqa6s")
+lifetime = 6.0
 
 [node name="GameArea" type="TileMapLayer" parent="."]
 position = Vector2(160, 32)
