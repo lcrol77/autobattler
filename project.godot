@@ -24,6 +24,10 @@ window/size/window_height_override=750
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+units=""
+
 [input]
 
 select={
