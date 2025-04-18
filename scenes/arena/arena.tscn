@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://b54m8v4gwnj07"]
+[gd_scene load_steps=14 format=4 uid="uid://b54m8v4gwnj07"]
 
 [ext_resource type="TileSet" uid="uid://ckm4s5vo8xitp" path="res://scenes/arena/tileset.tres" id="1_1thxu"]
-[ext_resource type="Script" path="res://scenes/arena/arena.gd" id="1_ovtsj"]
+[ext_resource type="Script" uid="uid://d0ie5kfcyhjj3" path="res://scenes/arena/arena.gd" id="1_ovtsj"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_qqa6s"]
-[ext_resource type="Script" path="res://componets/unit_grid.gd" id="4_01csu"]
-[ext_resource type="Script" path="res://componets/play_area.gd" id="4_25xqw"]
+[ext_resource type="Script" uid="uid://cx5gvoprnbql2" path="res://componets/unit_grid.gd" id="4_01csu"]
+[ext_resource type="Script" uid="uid://t5ubmfpvkixh" path="res://componets/play_area.gd" id="4_25xqw"]
 [ext_resource type="PackedScene" uid="uid://bn8sh6jx38cwa" path="res://scenes/unit/unit.tscn" id="4_cw02r"]
-[ext_resource type="Script" path="res://componets/tile_highlighter.gd" id="6_5nv6f"]
-[ext_resource type="Script" path="res://componets/unit_mover.gd" id="8_73hv5"]
+[ext_resource type="Script" uid="uid://cp43gjie46g5j" path="res://componets/tile_highlighter.gd" id="6_5nv6f"]
+[ext_resource type="Script" uid="uid://22lg2qm7gpdn" path="res://componets/unit_mover.gd" id="8_73hv5"]
+[ext_resource type="Resource" uid="uid://hbifgqe1rnnq" path="res://data/units/robin.tres" id="8_o0sm7"]
 [ext_resource type="Resource" uid="uid://dy7hv430y4a5l" path="res://data/units/arthur.tres" id="8_qvnev"]
 
 [sub_resource type="Curve" id="Curve_fkdd5"]
@@ -56,9 +57,9 @@ tile_set = ExtResource("1_1thxu")
 z_index = 99
 position = Vector2(320, 180)
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_seki6")
 texture = ExtResource("2_qqa6s")
 lifetime = 6.0
+process_material = SubResource("ParticleProcessMaterial_seki6")
 
 [node name="GameArea" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(160, 32)
@@ -106,6 +107,7 @@ tile_set = ExtResource("1_1thxu")
 
 [node name="Unit2" parent="Bench" instance=ExtResource("4_cw02r")]
 position = Vector2(32, 0)
+stats = ExtResource("8_o0sm7")
 
 [node name="Unit3" parent="Bench" instance=ExtResource("4_cw02r")]
 position = Vector2(64, 0)

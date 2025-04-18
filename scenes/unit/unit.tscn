@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bn8sh6jx38cwa"]
 
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="1_l6ghr"]
-[ext_resource type="Script" path="res://scenes/unit/unit.gd" id="1_lqd6f"]
+[ext_resource type="Script" uid="uid://dnr1iunf70j5o" path="res://scenes/unit/unit.gd" id="1_lqd6f"]
 [ext_resource type="Resource" uid="uid://7w76mogny43t" path="res://data/units/bjorn.tres" id="2_2582t"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_wwtpv"]
-[ext_resource type="Script" path="res://componets/drag_and_drop.gd" id="4_yphpa"]
-[ext_resource type="Script" path="res://componets/velocity_based_rotation.gd" id="5_p6gyb"]
-[ext_resource type="Script" path="res://componets/outline_highlighter.gd" id="7_5bf2n"]
+[ext_resource type="Script" uid="uid://b3tluwxi0rtfr" path="res://componets/drag_and_drop.gd" id="4_yphpa"]
+[ext_resource type="Script" uid="uid://buvtaw5i30f55" path="res://componets/velocity_based_rotation.gd" id="5_p6gyb"]
+[ext_resource type="Script" uid="uid://dqikk845wex1e" path="res://componets/outline_highlighter.gd" id="7_5bf2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n0ib"]
 size = Vector2(36, 36)
