@@ -11,6 +11,14 @@ func _ready() -> void:
 	for i in size.x:
 		for j in size.y:
 			units[Vector2i(i,j)] = null
+	# FIXME: this is added to support manual creation of units by adding them in the scene tree
+	# and can be removed when no longer needed
+	for child in get_children():
+		if child is not Unit:
+			continue
+		var unit := child as Unit
+		var tile := (get_parent() as PlayArea).get_tile_from_global(unit.global_position)
+		add_unit(tile, unit)
 
 func add_unit(tile: Vector2i, unit: Node) -> void:
 	units[tile] = unit
