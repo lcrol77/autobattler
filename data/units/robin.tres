@@ -5,6 +5,4 @@
 [resource]
 script = ExtResource("1_0tqbq")
 name = "Robin"
-rarity = 0
-gold_cost = 1
 skin_coordinates = Vector2i(2, 0)
