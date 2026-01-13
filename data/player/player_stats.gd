@@ -19,7 +19,8 @@ const XP_REQUIREMENTS := {
 @export_range(1,10) var level: int: set = _set_level
 
 func get_current_xp_requirement() -> int:
-	return XP_REQUIREMENTS[level+1]
+	var next_level = clampi(level+1,1,10)
+	return XP_REQUIREMENTS[next_level]
 
 func _set_gold(value: int) -> void:
 	gold = value
@@ -27,10 +28,14 @@ func _set_gold(value: int) -> void:
 
 func _set_xp(value: int) -> void:
 	xp = value
+	emit_changed()
+
 	if level == 10:
 		return
+
 	var xp_requirement: int = get_current_xp_requirement()
-	while xp >= xp_requirement:
+
+	while level < 10 and xp >= xp_requirement:
 		level += 1
 		xp -= xp_requirement
 		xp_requirement = get_current_xp_requirement()
@@ -41,4 +46,4 @@ func _set_level(value: int) -> void:
 	emit_changed()
 
 func is_max_level() -> bool:
-	return  level ==10
+	return  level == 10

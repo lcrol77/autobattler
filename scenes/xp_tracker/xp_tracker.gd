@@ -14,14 +14,13 @@ func _ready() -> void:
 
 func _input(event: InputEvent) ->void:
 	if event.is_action_pressed("ui_accept"):
-		player_stats.xp+=4
+		player_stats.xp += 5
 
 func _on_player_stats_changed() -> void:
 	if not player_stats.is_max_level():
 		_set_xp_bar_values()
 	else:
 		_set_max_level_values()
-	
 	level_label.text = "lvl: %s" % player_stats.level
 
 
