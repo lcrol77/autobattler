@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b54m8v4gwnj07"]
+[gd_scene load_steps=18 format=4 uid="uid://b54m8v4gwnj07"]
 
 [ext_resource type="TileSet" uid="uid://ckm4s5vo8xitp" path="res://scenes/arena/tileset.tres" id="1_1thxu"]
 [ext_resource type="Script" uid="uid://d0ie5kfcyhjj3" path="res://scenes/arena/arena.gd" id="1_ovtsj"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dy2y0eqmvdmmm" path="res://componets/unit_spawner.gd" id="11_xgbxb"]
 [ext_resource type="PackedScene" uid="uid://b2n6m3532hplj" path="res://scenes/sell_portal/sell_portal.tscn" id="12_s83md"]
 [ext_resource type="Resource" uid="uid://b840qggeqwpcv" path="res://data/player/player_stats.tres" id="13_fv88w"]
+[ext_resource type="PackedScene" uid="uid://dnq1yunyhlcrf" path="res://scenes/shop/shop.tscn" id="14_fv88w"]
 
 [sub_resource type="Curve" id="Curve_fkdd5"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252914, 1), 0.0, 0.0, 0, 0, Vector2(0.807692, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -141,3 +142,7 @@ play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
 script = ExtResource("11_xgbxb")
 bench = NodePath("../Bench")
 game_area = NodePath("../GameArea")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Shop" parent="UI" instance=ExtResource("14_fv88w")]

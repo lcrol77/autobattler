@@ -8,7 +8,7 @@ extends Node
 
 @onready var source_id := play_area.tile_set.get_source_id(0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not enabled:
 		return
 	var selected_tile = play_area.get_hovered_tile()

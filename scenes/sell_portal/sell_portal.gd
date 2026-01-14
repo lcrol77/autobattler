@@ -18,7 +18,7 @@ func setup_unit(unit: Unit) -> void:
 	unit.drag_and_drop.dropped.connect(_on_unit_dropped.bind(unit))
 	unit.quick_sell_pressed.connect(_sell_unit.bind(unit))
 
-func _on_unit_dropped(starting_position: Vector2, unit: Unit) -> void:
+func _on_unit_dropped(_starting_position: Vector2, unit: Unit) -> void:
 	if unit and unit == current_unit:
 		_sell_unit(unit)
 
