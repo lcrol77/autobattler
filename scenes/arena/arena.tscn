@@ -147,4 +147,5 @@ game_area = NodePath("../GameArea")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Shop" parent="UI" instance=ExtResource("14_fv88w")]
+unique_name_in_owner = true
 unit_pool = ExtResource("15_w4nra")
