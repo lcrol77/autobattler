@@ -24,11 +24,7 @@ var border_color : Color
 func _ready() -> void:
 	player_stats.changed.connect(_on_player_stats_changed)
 	_on_player_stats_changed()
-	unit_bought.connect(
-		func(unit: UnitStats):
-			print("bought unit:", unit)
-			print("gold:",player_stats.gold)
-	)
+
 func _set_unit_stats(value: UnitStats) -> void:
 	unit_stats = value
 	if not is_node_ready():
@@ -45,7 +41,7 @@ func _set_unit_stats(value: UnitStats) -> void:
 	unit_name.text = unit_stats.name
 	gold.text = str(unit_stats.gold_cost)
 	unit_icon.texture.region.position = Vector2(unit_stats.skin_coordinates) * Arena.CELL_SIZE
-	
+
 func _on_player_stats_changed() -> void:
 	if not unit_stats:
 		return
@@ -57,7 +53,7 @@ func _on_player_stats_changed() -> void:
 	else:
 		modulate = Color(Color.WHITE, 0.5)
 
-	
+
 func _on_pressed() -> void:
 	if bought:
 		return
@@ -69,6 +65,6 @@ func _on_pressed() -> void:
 func _on_mouse_entered() -> void:
 	if not disabled:
 		border_sb.border_color = HOVER_BORDER_COLOR
-	
+
 func _on_mouse_exited() -> void:
 	border_sb.border_color = border_color
