@@ -18,6 +18,7 @@ const RARITY_COLORS := {
 	set(value):
 		tier = value
 		emit_changed()
+@export var pool_count := 5
 		
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
