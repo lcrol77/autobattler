@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func add_unit(tile: Vector2i, unit: Node) -> void:
 	units[tile] = unit
+	unit.tree_exited.connect(_on_unit_tree_exited.bind(unit,tile))
 	unit_grid_changed.emit()
 
 func is_tile_occupied(tile: Vector2i) -> bool:
@@ -40,5 +41,11 @@ func remove_unit(tile: Vector2i) -> void:
 	var unit := units[tile] as Node
 	if not unit:
 		return
+	unit.tree_exited.connect(_on_unit_tree_exited)
 	units[tile] = null
 	unit_grid_changed.emit()
+
+func _on_unit_tree_exited(unit: Node, tile: Vector2i) -> void:
+	if unit.is_queued_for_deletion():
+		units[tile] = null
+		unit_grid_changed.emit()
