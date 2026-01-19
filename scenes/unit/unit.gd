@@ -13,6 +13,7 @@ signal quick_sell_pressed
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 @onready var tier_icon: TierIcon = $TierIcon
+@onready var animations: UnitAnimations = $UnitAnimations
 
 var is_hovered := false
 

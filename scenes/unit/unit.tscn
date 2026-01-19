@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bn8sh6jx38cwa"]
+[gd_scene load_steps=15 format=3 uid="uid://bn8sh6jx38cwa"]
 
 [ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="1_l6ghr"]
 [ext_resource type="Script" uid="uid://dnr1iunf70j5o" path="res://scenes/unit/unit.gd" id="1_lqd6f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://buvtaw5i30f55" path="res://componets/velocity_based_rotation.gd" id="5_p6gyb"]
 [ext_resource type="Script" uid="uid://dqikk845wex1e" path="res://componets/outline_highlighter.gd" id="7_5bf2n"]
 [ext_resource type="PackedScene" uid="uid://djyo4c32bgwbw" path="res://scenes/tier_icon/tier_icon.tscn" id="8_w7udy"]
+[ext_resource type="Script" uid="uid://vg1lo14tb28e" path="res://componets/unit_animations.gd" id="9_vqlpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n0ib"]
 size = Vector2(36, 36)
@@ -91,6 +92,11 @@ script = ExtResource("7_5bf2n")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thinkness = 2
+
+[node name="UnitAnimations" type="Node" parent="." node_paths=PackedStringArray("unit")]
+script = ExtResource("9_vqlpx")
+unit = NodePath("..")
+metadata/_custom_type_script = "uid://vg1lo14tb28e"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
