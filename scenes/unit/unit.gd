@@ -5,12 +5,14 @@ extends Area2D
 signal quick_sell_pressed
 
 @export var stats: UnitStats : set = set_stats
+
 @onready var skin: Sprite2D = %Skin
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var mana_bar: ProgressBar = $ManaBar
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
+@onready var tier_icon: TierIcon = $TierIcon
 
 var is_hovered := false
 
@@ -43,6 +45,7 @@ func set_stats(value: UnitStats) -> void:
 	if not is_node_ready():
 		await ready
 	skin.region_rect.position = Vector2(stats.skin_coordinates) * Arena.CELL_SIZE
+	tier_icon.stats = stats
 
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:
